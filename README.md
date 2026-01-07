@@ -56,6 +56,12 @@ Füge den Eintrag unten hinzu, aber verwende die richtige UUID ;-).
 UUID=1234-ABCD  /media/usb  ntfs  defaults,nofail,uid=kino,gid=kino  0  0
 ```
 
+oder exfat:
+
+```
+UUID=1234-ABCD  /media/usb  exfat  defaults,nofail,uid=kino,gid=kino  0  0
+```
+
 # Verzeichnisstruktur
 ```ASE_DIR/
 ├── Filme/
