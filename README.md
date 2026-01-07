@@ -179,3 +179,25 @@ sudo systemctl daemon-reload
 sudo systemctl enable kino.service
 sudo systemctl start kino.service
 ```
+
+
+## Sicherheit & Netzwerk
+
+**Wichtiger Hinweis:**  
+
+Der integrierte Kino-Webserver **ist nicht für den öffentlichen Internetzugang gedacht**.  
+Er sollte nur im **lokalen Netzwerk** (LAN) betrieben werden.
+
+### Warum?
+
+- Kino streamt Videos direkt über HTTP, **ohne Authentifizierung**
+- Wenn der Server öffentlich erreichbar ist, können **Urheberrechtsverletzungen** oder andere rechtliche Probleme entstehen
+- Streaming über das Internet kann schnell **rechtliche Konsequenzen** nach sich ziehen
+
+### Empfehlungen
+
+- Nur im Heimnetzwerk betreiben
+- Keine Portfreigaben im Router (Port Forwarding)
+- Zugriff über VPN, wenn du von außen streamen möchtest
+- Keine öffentlichen IP-Adressen verwenden
+
