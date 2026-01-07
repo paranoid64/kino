@@ -1,0 +1,7 @@
+base_dir: "/media/usb"              # Pfad zu den Filmen
+web_video_dir: "videos"             # Symlink für Browser
+cover_dir: "covers"                 # Ordner für Thumbnails
+port: 8000                          # Port für den Webserver
+num_thumbnails: 5                   # Optional: Anzahl der Thumbnails pro Film
+timeout: 300                        # Sekunden (300 = 5 Min)
+chunked_streaming_size: 1           # MB ( 1 = 1 MB )

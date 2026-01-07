@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif; background: #111; color: #eee;
+  background-image: url('../img/bg.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1 {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 3rem;
+  color: #e50914;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+  letter-spacing: 2px;
+  display:block;
+  margin:auto;
+  text-align:center;
+  margin:10px;
+}
+
+
+h2 { margin-top: 40px; }
+video { width:50%; margin:auto; }
+
+#content {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 80%;
+    display:block;
+    margin: auto;
+    padding: 50px;
+}
+
+#info { white-space:pre; color:#ff6b6b; margin-top:10px; }
+
+.grid { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.card h3 {
+    font-size: 14px;
+    margin: 5px 0 0;
+    text-transform: uppercase;
+}
+
+.card {
+  position: relative;       /* damit wir absolute Elemente innerhalb positionieren können */
+  width: 200px;             /* Beispielgröße, anpassen */
+  margin: 10px;
+  cursor: pointer;
+  padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.9);
+    font-size:10px;
+}
+
+.card img.poster {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+}
+
+.card .meta {
+  position: absolute;       /* absolut innerhalb der Card */
+  top: 14px;
+  right: 15px;
+  background-color: rgba(0,0,0,0.6); /* leicht transparent schwarz */
+  color: white;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 0.75rem;       /* kleine Schrift */
+  font-weight: bold;
+  pointer-events: none;     /* klick nicht blockieren */
+}
+
+.poster {
+  width: 50%;
+  border-radius: 4px;
+  transition: opacity 0.2s;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card img { width: 100%; border-radius: 4px; }
