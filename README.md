@@ -5,6 +5,9 @@ Es scannt eine Verzeichnisstruktur (z. B. eine USB-Festplatte), erzeugt automati
 Beim Start werden nur neue Videos hinzugefügt, nicht mehr vorhandene automatisch entfernt und eine JSON-Bibliothek für Web-Frontends erzeugt.
 Kino ist sehr schlank und läuft bei mir auf einem Raspberry Pi 2B. Die Videos werden in kleinen 1-MB-Paketen gesendet, sodass der Pi auch mit mehreren Clients keine Probleme hat. 
 
+![Screenshot](1.png)
+
+
 # Tips
 ---
 
