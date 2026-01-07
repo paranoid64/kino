@@ -6,7 +6,52 @@ Beim Start werden nur neue Videos hinzugefügt, nicht mehr vorhandene automatisc
 Kino ist sehr schlank und läuft bei mir auf einem Raspberry Pi 2B. Die Videos werden in kleinen 1-MB-Paketen gesendet, sodass der Pi auch mit mehreren Clients keine Probleme hat. 
 
 # Tips
+---
 
+## 💾 Externe USB-Festplatte (Raspberry Pi / Linux)
+
+Für einen stabilen Betrieb von **Kino** mit einer externen USB-Festplatte (insbesondere am Raspberry Pi) sind folgende Punkte wichtig.
+
+---
+
+## Stromversorgung (SEHR WICHTIG)
+
+**Externe Festplatten benötigen oft mehr Strom, als der Raspberry Pi liefern kann.**
+
+### Empfehlung
+- **USB-Festplatte mit eigener Stromversorgung**
+- oder **USB-Hub mit Netzteil**
+
+### Symptome bei zu wenig Strom
+- Festplatte verschwindet sporadisch
+- Dateisystemfehler
+- Kino-Dienst stürzt ab
+- Videos brechen beim Abspielen ab
+
+**Ohne eigene Stromversorgung ist kein stabiler Dauerbetrieb möglich.**
+
+---
+
+## USB-Festplatte automatisch mounten
+
+Damit die Festplatte **beim Systemstart automatisch eingebunden** wird, sollte sie über `/etc/fstab` gemountet werden.
+
+---
+
+## UUID der Festplatte ermitteln
+
+```
+lsblk -f
+sudo mkdir -p /media/usb
+sudo chown kino:kino /media/usb
+sudo nano /etc/fstab
+
+```
+Füge den Eintrag unten hinzu, aber verwende die richtige UUID ;-).
+
+```
+UUID=1234-ABCD  /media/usb  ntfs  defaults,nofail,uid=kino,gid=kino  0  0
+```
 
 # Verzeichnisstruktur
 ```ASE_DIR/
@@ -95,7 +140,9 @@ sudo chown -R kino:kino /opt/kino
 ```
 [Unit]
 Description=Kino Medienserver
-After=network.target
+After=network.target local-fs.target
+Requires=local-fs.target
+
 StartLimitIntervalSec=0
 
 [Service]
