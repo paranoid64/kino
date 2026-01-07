@@ -8,7 +8,7 @@ Kino ist sehr schlank und läuft bei mir auf einem Raspberry Pi 2B. Die Videos w
 # Tips
 ---
 
-## 💾 Externe USB-Festplatte (Raspberry Pi / Linux)
+## Externe USB-Festplatte (Raspberry Pi / Linux)
 
 Für einen stabilen Betrieb von **Kino** mit einer externen USB-Festplatte (insbesondere am Raspberry Pi) sind folgende Punkte wichtig.
 
