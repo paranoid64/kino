@@ -4,6 +4,7 @@ Kino ist ein Python-Projekt zur Verwaltung und Bereitstellung einer lokalen Film
 Es scannt eine Verzeichnisstruktur (z. B. eine USB-Festplatte), erzeugt automatisch eine SQLite-Datenbank, erstellt Vorschaubilder (Thumbnails) für Videos und stellt die Inhalte über einen integrierten Webserver bereit.
 Beim Start werden nur neue Videos hinzugefügt, nicht mehr vorhandene automatisch entfernt und eine JSON-Bibliothek für Web-Frontends erzeugt.
 Kino ist sehr schlank und läuft bei mir auf einem Raspberry Pi 2B. Die Videos werden in kleinen 1-MB-Paketen gesendet, sodass der Pi auch mit mehreren Clients keine Probleme hat. 
+Selbst auf der PS4 über den Browser läuft das Kinoskript sehr gut.
 
 ![Screenshot](1.png)
 
