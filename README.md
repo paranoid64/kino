@@ -97,26 +97,25 @@ Description=Kino Medienserver
 After=network.target local-fs.target
 Requires=local-fs.target
 
-StartLimitIntervalSec=0
-
 [Service]
 Type=simple
-User=kino
-Group=kino
-WorkingDirectory=/opt/kino
-ExecStart=/usr/bin/python3 /opt/kino/kino.py
+WorkingDirectory=/opt/Kino
+ExecStart=/usr/bin/python3 /opt/Kino/kino.py
 
 # Neustart bei Absturz
 Restart=always
 RestartSec=5
 
-# Watchdog
-WatchdogSec=60
-TimeoutStopSec=30
+# Logging: stdout wird ins Logfile umgeleitet, stderr auch
+StandardOutput=null
+StandardError=file:/var/log/kino.log
 
-# Logging
-StandardOutput=journal
-StandardError=journal
+# Watchdog deaktiviert
+WatchdogSec=0
+
+# Optional: als normaler User laufen lassen
+User=kino
+Group=kino
 
 [Install]
 WantedBy=multi-user.target
