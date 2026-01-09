@@ -298,11 +298,8 @@ class MyHandler(SimpleHTTPRequestHandler):
                 status = 206
 
             content_length = end - start + 1
-
-            # ✅ IMMER ZUERST
             self.send_response(status)
-
-            # ✅ DANN Header
+            
             if status == 206:
                 self.send_header(
                     "Content-Range",
