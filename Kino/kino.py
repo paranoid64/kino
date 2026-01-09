@@ -259,9 +259,6 @@ class MyHandler(SimpleHTTPRequestHandler):
         super().handle()  # Verarbeitet die Anfrage wie gewohnt
 
     def end_headers(self):
-        #self.send_response(200)
-        #self.protocol_version = "HTTP/1.1"
-        #self.send_header("Connection", "keep-alive")
         self.send_header("Accept-Ranges", "bytes")
         super().end_headers()
 
