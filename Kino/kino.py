@@ -5,8 +5,7 @@
 kino.py
 Erstellt eine SQLite-Datenbank mit allen Filmen auf der USB-Festplatte.
 Bei jedem Start werden nur neue Videos hinzugefügt, alte gelöscht.
-JSON wird für den Webserver erzeugt.
-Autor: Marcus Lausch Datum: 2026-01-04
+JSON wird für den Webserver erzeugt
 """
 
 import os
@@ -215,9 +214,9 @@ conn.commit()
 # JSON FÜR WEBSERVER
 # =============================
 
-c.execute("SELECT title,file,category,type,thumbnails,duration FROM movies")
+c.execute("SELECT id, title, file, category, type, thumbnails, duration, last_seen FROM movies ORDER BY id DESC")
 rows = c.fetchall()
-columns = [desc[0] for desc in c.description]
+columns = [desc[0] for desc in c.description] # Das [0] ist wichtig für die Spaltennamen
 
 library = []
 for r in rows:
@@ -227,6 +226,7 @@ for r in rows:
 
 with open("library.json", "w", encoding="utf-8") as fp:
     json.dump({"movies": library}, fp, indent=2, ensure_ascii=False)
+
 
 print(f"{len(library)} Filme gefunden – JSON gebaut")
 
@@ -259,6 +259,9 @@ class MyHandler(SimpleHTTPRequestHandler):
         super().handle()  # Verarbeitet die Anfrage wie gewohnt
 
     def end_headers(self):
+        #self.send_response(200)
+        #self.protocol_version = "HTTP/1.1"
+        #self.send_header("Connection", "keep-alive")
         self.send_header("Accept-Ranges", "bytes")
         super().end_headers()
 
@@ -295,8 +298,8 @@ class MyHandler(SimpleHTTPRequestHandler):
                 status = 206
 
             content_length = end - start + 1
+
             self.send_response(status)
-            
             if status == 206:
                 self.send_header(
                     "Content-Range",
