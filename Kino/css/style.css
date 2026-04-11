@@ -35,6 +35,44 @@ h1 {
 h2 { margin-top: 40px; }
 video { width:50%; margin:auto; }
 
+#category-bar {
+    margin: 10px;
+    text-align: center;
+}
+
+#category-bar button {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+    margin: 5px;
+}
+
+/* Hover-Effekt (Maus drüber) */
+#category-bar button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: white;
+    transform: scale(1.05); /* Wird minimal größer */
+}
+
+/* Aktiver Button (wenn angeklickt) */
+#category-bar button:active {
+    background-color: #e50914; /* Netflix-Rot */
+    border-color: #e50914;
+    transform: scale(0.95);
+}
+
+/* Fokus-Zustand für Tastaturbedienung */
+#category-bar button:focus {
+    box-shadow: 0 0 0 2px #e50914;
+}
+
 #content {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
